@@ -1,7 +1,7 @@
 def every_other_element(arr):
     """
     Task:
-        Given an array return the 2i+1th element where i takes values of {0, 1, ...}
+        Given an array return the elements at the odd indices
 
     Hint: This can be done in a one-liner using a list comprehension but you're welcome to use a for-loop, too
     """
@@ -70,27 +70,41 @@ def nth_fibonacci_number(n):
     """
     raise NotImplementedError()
 
+
 def safe_divide(numerator, denominator):
     """
     Context:
+        1) there are multiple ways to handle errors:
+            - Look Before You Leap (LBYL)
+            - Easier to Ask Forgiveness Than Permission ( EAFP )
+        the gist of these are that in one you defensively program, but in the other you let the error occur and then recover.
+        There are arguments for one over the other, but we will make you use the EAFP approach here.
 
-        there are multiple ways to handle errors:
-            - look-before-you-leap)
-            - 
-    
-        Division by zero in python throws an exception: ZeroDivisionError. However, we might want to recover from this!
-
-        https://realpython.com/python-lbyl-vs-eafp/
+        For more information see: https://realpython.com/python-lbyl-vs-eafp/
 
     Task:
-        
-            
-        Do not check if the denominator is zero. Instead, we want to 
-    """
+        Division by zero in python throws an exception: ZeroDivisionError. However, we might want to recover from this!
 
-"""
-Simple test cases that you should add to! 
-"""
+        For this task, do not check if the denominator is zero. Instead, catch the exception and return a tuple of the numerator, denominator, and a string describing what happened. If the division is successful, return the quotient
+    """
+    raise NotImplementedError()
+
+
+def count_frequencies(in_str, ignore_case=False):
+    """
+    Task:
+        count the frequencies of the words coming into `in_str`. There is an optional argument
+        that the user can pass in where they want to ignore the case of the words.
+
+        Return a dictionary where the keys are the words and the values are the counts
+
+    Hint:
+        You might find the "split" and "lower" functions useful here
+
+
+    """
+    raise NotImplementedError()
+
 
 #####################################
 # Simple test Cases:
@@ -98,24 +112,56 @@ Simple test cases that you should add to!
 #       them and add any others that might be necessary
 #####################################
 
+
 def test_every_other_element():
     assert every_other_element([1, 2, 3]) == [2]
     assert every_other_element(["uh-oh"]) == []
 
+
 def test_is_palindrome():
     assert is_palindrome("racecar") == True
     assert is_palindrome("wow") == True
+
+
 def test_fizzbuzz():
-    assert fizzbuzz(3) == ["1","2","Fizz"]
-    assert fizzbuzz(5) == ["1","2","Fizz","4","Buzz"]
+    assert fizzbuzz(3) == ["1", "2", "Fizz"]
+    assert fizzbuzz(5) == ["1", "2", "Fizz", "4", "Buzz"]
+
 
 def test_happy_numbers():
     assert happy_numbers(4) == False
     assert happy_numbers(13) == True
 
+
 def test_fibonacci():
     assert nth_fibonacci_number(8) == 21
     assert nth_fibonacci_number(10) == 55
+
+
+def test_safe_divide():
+    # Normal division returns the quotient
+    assert safe_divide(10, 2) == 5
+    assert safe_divide(7, 2) == 3.5
+
+    # Division by zero is recovered from: (numerator, denominator, message)
+    result = safe_divide(10, 0)
+    assert result[0] == 10
+    assert result[1] == 0
+    assert isinstance(result[2], str)
+
+
+def test_count_frequencies():
+    assert count_frequencies("the cat the dog") == {"the": 2, "cat": 1, "dog": 1}
+
+    # Case matters by default
+    assert count_frequencies("The the") == {"The": 1, "the": 1}
+
+    # ...unless we ignore it
+    assert count_frequencies("The the", ignore_case=True) == {"the": 2}
+
+    # Edge case: empty string
+    assert count_frequencies("") == {}
+
 
 if __name__ == "__main__":
     test_every_other_element()
@@ -123,5 +169,5 @@ if __name__ == "__main__":
     test_fizzbuzz()
     test_happy_numbers()
     test_fibonacci()
-
-
+    test_safe_divide()
+    test_count_frequencies()

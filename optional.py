@@ -39,6 +39,18 @@ def fast_nth_generalized_number(n, zeroth, first, cache={}):
     raise NotImplementedError()
 
 
+def two_sum(in_arr, target_value):
+    """
+    Task:
+        given an array of integers and a target value, return the indices corresponding to the integers that sum
+        to the target value.
+
+        If there is more than one solution you may return any valid set of indices. If there are no pairs satisfying this,
+        return a None
+    """
+    raise NotImplementedError()
+
+
 def test_fibonacci_generalized():
     # Test unoptimized
     assert nth_generalized_number(8, 0, 1) == 21
@@ -72,8 +84,17 @@ def test_mixed():
     assert fast_nth_generalized_number(10, 0, 1) == 55
     assert fast_nth_generalized_number(10, 2, 1) == 123
 
-if __name__ == "__main__":
 
+def test_two_sum():
+    assert sorted(two_sum([2, 7, 11, 15], 9)) == [0, 1]
+    assert sorted(two_sum([3, 2, 4], 6)) == [1, 2]
+    assert sorted(two_sum([3, 3], 6)) == [0, 1]
+    assert sorted(two_sum([-1, 5, 1], 0)) == [0, 2]
+    assert sorted(two_sum([-1, 5, 1], 100)) is None  # Do you know why we do an `is None` instead of `== None` ?
+
+
+if __name__ == "__main__":
     test_fibonacci_generalized()
-    test_fibonacci_generalized()
+    test_lucas_generalized()
     test_mixed()
+    test_two_sum()
