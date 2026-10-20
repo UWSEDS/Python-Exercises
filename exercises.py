@@ -1,62 +1,69 @@
+"""A series of exercises to work through after completing the software carpentries.
+
+Note: there are non-exhaustive tests at the bottom of the file that you can reference
+"""
+
+
 def every_other_element(arr):
-    """
-    Task:
+    """Task:
         Given an array return the elements at the odd indices
 
     Hint: This can be done in a one-liner using a list comprehension but you're welcome to use a for-loop, too
     """
-    raise NotImplementedError()
+    return arr[::]
+    # raise NotImplementedError
 
 
 def is_palindrome(in_str):
-    """
-    Task:
+    """Task:
 
-    Determine if an input string is a palindrome. There are multiple ways of doing this but you should try doing this with
-    a for-loop (you will have to do some indexing) and using string slicing.
+    Determine if an input string is a palindrome. There are multiple ways of doing this but you should try doing
+    this with a for-loop (you will have to do some indexing) and using string slicing.
 
-    Additional task:
-        - does your solution work with strings and lists?
+    Additional consideration:
+        - test your implementation with both strings and lists! See what happens
     """
-    raise NotImplementedError()
+    raise NotImplementedError
 
 
 def fizzbuzz(n):
-    """
-    Task:
-    Given an integer n, return a string array answer (1-indexed) where:
+    """Task:
+    Given an integer n that is greater than 1, return an array of length n, where the entries are strings.
+    The element at the i-th index should be defined by the following:
 
          answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
          answer[i] == "Fizz" if i is divisible by 3.
          answer[i] == "Buzz" if i is divisible by 5.
          answer[i] == i (as a string) if none of the above conditions are true.
 
+    For example, given:
+    - fizzbuzz(3) you should output ["1", "2", "Fizz"]
+    - fizzbuzz(5) you should output ["1", "2", "Fizz", "4", "Buzz"]
     """
-    raise NotImplementedError()
+
+    raise NotImplementedError
 
 
 def happy_numbers(n):
-    """
-
-    Context:
+    """Context:
 
     A happy number is a number defined by the following process:
 
         Starting with any positive integer, replace the number by the sum of the squares of its digits.
 
-        Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+        Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a
+        cycle which does not include 1.
 
         Those numbers for which this process ends in 1 are happy.
 
     Task:
         Return true if n is a happy number, and false if not.
     """
-    raise NotImplementedError()
+    raise NotImplementedError
 
 
 def nth_fibonacci_number(n):
-    """
-    Context:
+    """Context:
     A Fibonacci number is a number where the i-th Fibonacci number is the sum of the i-1th and i-2 Fibonacci numbers i.e.
 
         F_i = F_{i - 1} + F_{i - 2}
@@ -64,16 +71,16 @@ def nth_fibonacci_number(n):
     A natural way of calculating this is via recursion.
 
     Task:
-        When the input is 0 or negative, it should return 0. When the input is 1 or 2 it should return 1. In all other cases it should follow the recurrence formula we specified earlier.
+        When the input is 0 or negative, it should return 0. When the input is 1 or 2 it should return 1.
+        In all other cases it should follow the recurrence formula we specified earlier.
 
         You may assume that the input number is greater-than-or-equal-to 0
     """
-    raise NotImplementedError()
+    raise NotImplementedError
 
 
 def safe_divide(numerator, denominator):
-    """
-    Context:
+    """Context:
         1) there are multiple ways to handle errors:
             - Look Before You Leap (LBYL)
             - Easier to Ask Forgiveness Than Permission ( EAFP )
@@ -85,14 +92,14 @@ def safe_divide(numerator, denominator):
     Task:
         Division by zero in python throws an exception: ZeroDivisionError. However, we might want to recover from this!
 
-        For this task, do not check if the denominator is zero. Instead, catch the exception and return a tuple of the numerator, denominator, and a string describing what happened. If the division is successful, return the quotient
+        For this task, do not check if the denominator is zero. Instead, catch the exception and return a tuple of the
+        numerator, denominator, and a string describing what happened. If the division is successful, return the quotient
     """
-    raise NotImplementedError()
+    raise NotImplementedError
 
 
 def count_frequencies(in_str, ignore_case=False):
-    """
-    Task:
+    """Task:
         count the frequencies of the words coming into `in_str`. There is an optional argument
         that the user can pass in where they want to ignore the case of the words.
 
@@ -103,7 +110,7 @@ def count_frequencies(in_str, ignore_case=False):
 
 
     """
-    raise NotImplementedError()
+    raise NotImplementedError
 
 
 #####################################
@@ -164,10 +171,11 @@ def test_count_frequencies():
 
 
 if __name__ == "__main__":
-    test_every_other_element()
-    test_is_palindrome()
-    test_fizzbuzz()
-    test_happy_numbers()
-    test_fibonacci()
-    test_safe_divide()
-    test_count_frequencies()
+    # test_every_other_element()
+    # test_is_palindrome()
+    # test_fizzbuzz()
+    # test_happy_numbers()
+    # test_fibonacci()
+    # test_safe_divide()
+    # test_count_frequencies()
+    print("All done!")
