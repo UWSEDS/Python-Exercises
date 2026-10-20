@@ -33,6 +33,24 @@ Problem 3:
 # print(foo == None)
 # print(foo is None)
 
+
+"""
+WTF??? Why did that happen?
+    To see why that happened, look at the file `wtf_lib.py`. In it, we have the
+    definition of the `Foo` class. This class has a method `__eq__` which is a
+    special method that's invoked whenever Python's `==` operator is used to
+    compare two objects. In other words, whenever you do `foo() == x`, Python
+    calls `foo().__eq__(x)`, which always returns `True`!
+
+    The general takeaway here is that, in Python, classes can redefine the
+    equality operator to have custom behavior. This is actually something that
+    comes up in one of the most frequently used Python libraries, numpy, which
+    we'll use later in this class.
+
+    Unlike the equality operator, however, the keyword `is` in Python has a very
+    specific meaning and classes can't redefine how `is` works.
+"""
+
 """
 What to do instead?
     This one's easy: just listen to the style guides! You should never compare

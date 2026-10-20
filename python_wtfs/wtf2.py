@@ -35,7 +35,7 @@ Problem 3:
 #     print(empty_list_parameter())
 
 """
-Why does this happen?
+WTF??? Why did that happen?
     The simple reason is that the function uses the same list object every time
     it's called. In other words, when the function is defined, it creates a new
     list object for the default parameter. Then, whenever the function is

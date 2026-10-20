@@ -62,7 +62,7 @@ Problem 5:
 # print(my_var)
 
 """
-Why does this happen?
+WTF??? Why did that happen?
     The answer is that integers are immutable objects and lists are mutable
     objects. Immutable objects are ones that CAN'T be modified (or mutated)
     after they're created and mutable objects are ones that CAN be modified (or
