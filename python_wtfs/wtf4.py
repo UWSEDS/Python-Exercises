@@ -3,16 +3,22 @@ Python WTFs: Fun with `is`
 """
 
 """
-Before we get to these problems, we need to go over a couple of Python functions
-and what they do.
+NOTE:
+    These exercises might not work depending on what Python implementation
+    you're using! These exercises were written based on CPython. CPython is the
+    default Python implementation. If you don't know what Python implementation
+    you're using, it's almost certainly CPython.
+"""
 
-The first function is `exec`. The `exec` function is simple. It executes Python
-code. If you supply it a string of Python code, it'll execute it. We're using it
-here to simulate the Python REPL. Running `exec("a = 1")` is effectively the
-same as running `>>> a = 1` in the Python REPL.
+"""
+NOTE:
+    Before we get to these problems, we need to go over a new Python function we
+    haven't seen yet.
 
-The second function is `id`. Every object in Python has an ID, and the function
-`id` returns that ID to us.
+    That function is `exec`. The `exec` function is simple. It executes Python
+    code. If you supply it a string of Python code, it'll execute it. Here,
+    we're using it to simulate the Python REPL. Running `exec("a = 1")` is
+    effectively the same as running `>>> a = 1` in the Python REPL.
 """
 
 """
@@ -160,3 +166,49 @@ Problem 9:
 # rhs = -6
 # print(lhs == rhs)
 # print(lhs is rhs)
+
+"""
+WTF??? Why did that happen?
+    Ok so a lot happened in this file. Let's go over all of it.
+
+    To recap our initial explanations:
+        -   `==` is the equivalency operator and checks if the two objects are
+            equivalent, according to some definition of equivalence.
+        -   `is` is the identity operator. It checks to see if the two objects
+            are the same object.
+
+    So, what's going on with the integers? It's easiest if we start with
+    `exec("lhs = 257")` and `exec("rhs = 257")`. What's happening with these
+    two statements is that Python is creating two new integer objects, `lhs` and
+    `rhs`, and setting the value of both to `257`. The key concept is that we're
+    creating two new objects that both just so happen to have the same value.
+    They are NOT the same object. The same thing happens when we do
+    `exec("lhs = -6")` and `exec("rhs = -6")`.
+
+    Ok, so then what's going on with `exec("lhs = 2")`, `exec("rhs = 2")`,
+    `exec("lhs = 256")`, `exec("rhs = 256")`, `exec("lhs = -5")`, and
+    `exec("rhs = -5")`? The answer is that CPython automatically creates objects
+    for every integer between -5 and 256. Then, instead of creating a new object
+    whenever one of those variables is used, CPython points to those
+    automatically-created objects; CPython does NOT create new objects for those
+    integers. This ONLY happens for integers between -5 and 256.
+
+    If that's the case, what's going on in the cases without the `exec`
+    function? This goes back to some weirdness with how Python works. Typically,
+    you'll hear the Python is an interpreted language; that Python runs by
+    stepping one line at a time and executing each line. And this is mostly
+    true. Python is interpreted. But, Python is not only interpreted; it is also
+    compiled. Specifically, when you run a Python file, the Python interpreter
+    first compiles the file to bytecode and then interprets the bytecode. It
+    does this to optimize the code. For us, what this means is that when we run
+    the statements that don't use `exec`, the Python interpreter compiles the
+    file and in doing so, optimizes the code to just create a single `257` and a
+    single `-6` object that `lhs` and `rhs` both point to. It does this because
+    it takes up more memory to create separate objects for both of the `257`s
+    and both `-6`s.
+"""
+
+"""
+What to do instead?
+    NEVER use `is` to compare integers. Just don't do it.
+"""
