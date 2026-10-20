@@ -35,7 +35,7 @@ Problem 3:
 #     print(empty_list_parameter())
 
 """
-Why does this happen?:
+Why does this happen?
     The simple reason is that the function uses the same list object every time
     it's called. In other words, when the function is defined, it creates a new
     list object for the default parameter. Then, whenever the function is
@@ -54,8 +54,10 @@ def empty_list_parameter_2(lst=empty_list_parameter_2_arg):
     lst += [1]
     return lst
 ```
+"""
 
-What to do instead?:
+"""
+What to do instead?
     To avoid this, don't use mutable objects for default function parameters!
     Instead, use `None` as the default value and create a new object within the
     function body:

@@ -71,10 +71,13 @@ Why does this happen?
     function; it doesn't created a new one.
 
     What happens with immutable objects? Well, since you can't modify immutable
-    objects, whenever you "update" an immutable object, you're actually creating
-    a new object that has the value of the changed original object.
+    objects, whenever you "change" an immutable object, you're actually creating
+    a new object that has the value of the "changed" original object; this
+    leaves the original object unchanged.
+"""
 
-What to do instead?:
+"""
+What to do instead?
     It really depends on what you're trying to do. If you don't want to modify
     an object that's passed to a function, you can create a deep copy of the
     original object:
@@ -88,4 +91,8 @@ def list_parameter(lst):
     new_lst += [1]
     return new_lst
 ```
+
+    That's a somewhat extreme way to get around this behavior, and what you
+    should do will likely change based on what you want your code to do. This is
+    just something important to keep in mind.
 """
