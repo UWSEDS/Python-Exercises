@@ -4,13 +4,13 @@ Note: there are non-exhaustive tests at the bottom of the file that you can refe
 """
 
 
-def every_other_element(arr):
+def every_other_element(in_list):
     """Task:
-        Given an array return the elements at the odd indices
+        Given a list return the elements at the odd indices
 
     Hint: This can be done in a one-liner using a list comprehension but you're welcome to use a for-loop, too
     """
-    return arr[::]
+    return in_list[::]
     # raise NotImplementedError
 
 
@@ -28,7 +28,7 @@ def is_palindrome(in_str):
 
 def fizzbuzz(n):
     """Task:
-    Given an integer n that is greater than 1, return an array of length n, where the entries are strings.
+    Given an integer n that is greater than 1, return a list of length n, where the entries are strings.
     The element at the i-th index should be defined by the following:
 
          answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
