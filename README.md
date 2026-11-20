@@ -10,9 +10,18 @@ A quick introduction to the files in this repository:
 
 - `optional.py`: contains optional exercises for those who are already more familiar with Python and want a challenge.
 
-- `refactoring.py`: code from [alan-turing-institute/bad-boids/](https://github.com/alan-turing-institute/bad-boids/blob/main/boids.py) that we've annotated with things to think about as you improve the code. The authors have a [GitHub branch](https://github.com/alan-turing-institute/bad-boids/tree/better_boids/boids) with their recommended refactoring, but some of those concepts are well beyond the scope of what we want to cover now. That said, feel free to take a look through!
-
 - `python_wtfs`: a folder of wacky exercises that show unexpected ways Python can misbehave.
+
+- `refactoring`: a folder containing exercises for an 80-minute lecture covering
+
+  - debugging
+  - logging:
+    - logging config file that does simple stdio and writing to a file
+    - (optional) streamlit app to parse the generated logs
+  - `refactoring_exe.py`:
+    - code from [alan-turing-institute/bad-boids/](https://github.com/alan-turing-institute/bad-boids/blob/main/boids.py) that we've annotated with things to think about as you improve the code. The authors have a [GitHub branch](https://github.com/alan-turing-institute/bad-boids/tree/better_boids/boids) with their recommended refactoring, but some of those concepts are well beyond the scope of what we want to cover now. That said, feel free to take a look through!
+  - `refactoring_sol.py`:
+    - an example solution (there is no right answer!) for the exercise above
 
 ## `exercises.py`
 
