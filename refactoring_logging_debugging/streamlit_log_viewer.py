@@ -1,6 +1,8 @@
 """Streamlit viewer that filters logs.log with real logging.Filter objects.
 
 Run with: streamlit run log_viewer.py
+
+Obviously, don't use this in anything of large scale. You'd be better served using an actual service
 """
 
 import logging
@@ -32,9 +34,7 @@ def parse_log_records(log_text: str) -> list[logging.LogRecord]:
     return records
 
 
-def build_filterer(
-    levels: list[str], logger_name: str, message_substring: str
-) -> logging.Filterer:
+def build_filterer(levels: list[str], logger_name: str, message_substring: str) -> logging.Filterer:
     """Filterer is the base class of Logger and Handler, so this runs filters exactly as logging does."""
     filterer = logging.Filterer()
     filterer.addFilter(lambda record: record.levelname in levels)
@@ -52,7 +52,7 @@ def main() -> None:
     try:
         log_text = log_path.read_text(encoding="utf-8")
     except FileNotFoundError:
-        st.error(f"No log file at {log_path.resolve()}. Run generate_logs.py first.")
+        st.error(f"Specify a valid log file to load in and interact with")
         st.stop()
 
     records = parse_log_records(log_text)
